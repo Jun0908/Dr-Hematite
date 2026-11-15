@@ -16,6 +16,8 @@
     scrap:'<path d="M11 18h42v35H11z" fill="#ae9fa0"/><path d="m19 26 13 8-11 12m19-20 7 5-9 14" fill="none" stroke="#f1d8cf" stroke-width="5"/>',
     resin:'<path d="M18 14h28l7 33-10 10H18L9 46z" fill="#75b7b1"/><path d="M24 21h16l5 25H18z" fill="#a6dfcf"/>',
     parts:'<path d="M13 15h37v34H13z" fill="#e8b966"/><path d="M19 22h25v20H19z" fill="#fae5b0"/><circle cx="31" cy="32" r="8" fill="#8498a6"/><circle cx="31" cy="32" r="3" fill="#f8df9b"/>',
+    production:'<path d="M8 49h48v9H8z" fill="#d8ae82"/><path d="M12 49V30l12 8V27l12 8V18l17 9v22z" fill="#81b6aa"/><path d="M18 45v-5m13 5v-5m13 5v-5" stroke="#fff4d1" stroke-width="4"/><path d="M43 17V7h7v14" fill="#e4c49d"/>',
+    research:'<path d="M32 14v17M32 31 13 47M32 31l19 16" fill="none" stroke="#e9d0a0" stroke-width="5"/><circle cx="32" cy="12" r="7" fill="#f2cb81"/><circle cx="12" cy="49" r="7" fill="#7acfc8"/><circle cx="52" cy="49" r="7" fill="#7acfc8"/><path d="M28 9h8m-27 40h6m34 0h6" stroke="#fff7dd" stroke-width="2"/>',
     battery:'<rect x="11" y="19" width="43" height="34" rx="6" fill="#e8c96f"/><path d="M25 19v-5h14v5" fill="#8797a6"/><path d="m36 25-11 14h8l-5 9 12-16h-8z" fill="#fff7cb"/>',
     solar:'<path d="M7 26h50L50 47H14z" fill="#4b9db4"/><path d="M19 26 14 47m17-21-2 21m14-21 3 21M9 36h45" stroke="#beeaf0" stroke-width="2" fill="none"/><path d="M24 48v9m16-9v9" stroke="#e4d2a6" stroke-width="4"/>',
     scout:'<circle cx="18" cy="47" r="7" fill="#2f3e4e"/><circle cx="47" cy="47" r="7" fill="#2f3e4e"/><path d="M10 39 19 28h28l7 12-8 8H18z" fill="#d9d1af"/><path d="M30 29V14l7-6m-5 9 13 6" stroke="#4b5362" stroke-width="4" fill="none"/><circle cx="45" cy="22" r="5" fill="#71d5e4"/>',

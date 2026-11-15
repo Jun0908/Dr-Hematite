@@ -414,6 +414,27 @@
     if(short.turns<=4&&!state.outcome)message+=` <button id="low-supply" data-action="inventory">⚠ ${short.name} ${short.turns}R</button>`;
     return message+' <button data-action="resource-targets">資源・Podを探す</button>'; 
   }
+  function productionSummaryData(next){
+    const balance=next?.balance||team(0).lastBalance||{},flows=next?.flows||team(0).lastFlows||[],en=window.HematiteI18n?.lang==='en';
+    const items=Object.keys(names).map(key=>{
+      const produced=balance[key]?.produced||0,net=next?.netAll?.[key]??team(0).lastNetAll?.[key]??0;
+      const stopped=flows.find(flow=>flow.blocked&&buildings[flow.type]?.out?.[key]);
+      const missing=stopped?.missing?.[0];
+      const reason=produced?null:missing?(en?`Need ${window.HematiteI18n.translate(names[missing.resource])}`:`${names[missing.resource]}不足`):stopped?.blocked?(en?window.HematiteI18n.translate(stopped.blocked):stopped.blocked):(en?'Not built':'未設置');
+      return {key,produced,net,reason};
+    });
+    return {life:items.filter(item=>['water','oxygen','food'].includes(item.key)),extras:items.filter(item=>!['water','oxygen','food'].includes(item.key)&&item.produced>0)};
+  }
+  function renderProductionSummary(){
+    const en=window.HematiteI18n?.lang==='en',summary=$('production-summary');
+    $('production-nav-icon').innerHTML=icon('production');$('research-nav-icon').innerHTML=icon('research');
+    if(state.outcome){summary.innerHTML=`<span class="production-summary-title">${en?'Match complete':'対戦終了'}</span>`;summary.setAttribute('aria-label',en?'Match complete':'対戦終了');summary.disabled=true;$('production-nav').disabled=true;return;}
+    summary.disabled=false;$('production-nav').disabled=false;
+    const next=forecast(0),data=productionSummaryData(next),title=en?'Next production':'次の生産';
+    summary.innerHTML=`<span class="production-summary-title">${title}${next.event?` · ${en?window.HematiteI18n.translate(eventName(next.event)):eventName(next.event)}`:''}<span aria-hidden="true">›</span></span><span class="production-summary-items">${data.life.map(item=>`<span class="production-mini ${item.produced?'':'stopped'}">${icon(item.key)}<span><b>${en?window.HematiteI18n.translate(names[item.key]):names[item.key]} ${item.produced}</b>${item.reason?`<small>${item.reason}</small>`:''}</span></span>`).join('')}<span class="production-mini extra"><b>${en?`${data.extras.length} more`:`ほか${data.extras.length}種`}</b></span></span>`;
+    const reading=data.life.map(item=>`${en?window.HematiteI18n.translate(names[item.key]):names[item.key]} ${item.produced}${item.reason?` ${item.reason}`:''}`).join(en?', ':'、');
+    summary.setAttribute('aria-label',`${title}：${reading}。${en?`${data.extras.length} other materials. Open details`:`ほか${data.extras.length}種。内訳を開く`}`);
+  }
   function render(){
     if(!state||roundProcessing)return;
     const t=team(0),short=supplyEstimate(0);$('round').textContent=String(state.round).padStart(2,'0');$('dp').textContent=t.dp;
@@ -424,9 +445,9 @@
     $('supply-chip').classList.toggle('shortage',short.turns<=4);
     $('event-banner').innerHTML=bannerHtml(short);
     $('map-page').classList.toggle('storm',state.event?.type==='storm');$('map-page').classList.toggle('radiation',state.event?.type==='radiation');$('map-page').classList.toggle('alerting',!!state.event||!!state.warning||short.turns<=4);
-    $('end-turn').disabled=!!state.outcome||turnBusy;renderMap();renderSheet();renderBase();renderTech();renderLog();window.HematiteI18n?.apply(document.querySelector('.app'));$('supply-chip').setAttribute('aria-label',reservesLabel);
+    $('end-turn').disabled=!!state.outcome||turnBusy;renderProductionSummary();renderMap();renderSheet();renderBase();renderTech();renderLog();window.HematiteI18n?.apply(document.querySelector('.app'));$('supply-chip').setAttribute('aria-label',reservesLabel);
   }
-  function dialog(title,body){$('dialog-content').innerHTML=`<h2>${title}</h2>${body}`;window.HematiteI18n?.apply($('dialog-content'));$('detail-dialog').showModal();$('detail-dialog').scrollTop=0;}
+  function dialog(title,body){$('dialog-content').innerHTML=`<h2>${title}</h2>${body}`;window.HematiteI18n?.apply($('dialog-content'));if(!$('detail-dialog').open)$('detail-dialog').showModal();$('detail-dialog').scrollTop=0;}
   function updateCamera(keepCenter=true){
     const scroller=$('map-scroller');if(!scroller.clientWidth||!scroller.clientHeight)return;
     const old=$('map').getBoundingClientRect().width||1;
@@ -448,6 +469,7 @@
     else if(cmd==='open-build')buildPicker=true;
     else if(cmd==='open-base'){if($('detail-dialog').open)$('detail-dialog').close();showPage('base');}
     else if(cmd==='resource-targets')dialog(window.HematiteI18n?.lang==='en'?'Find resources & Pods':'資源・Podを探す',resourceTargets());
+    else if(kind==='production-resource')guideProductionResource(arg);
     else if(kind==='focus-site'){const [x,y]=arg.split(',').map(Number);focusSite(x,y);}
     else if(kind==='select-kind'||kind==='select-unit'){const target=tile(selected.x,selected.y),units=team(0).units.filter(v=>kind==='select-unit'?v.id===Number(arg):v.kind===arg).sort((a,b)=>Number(a.moved)-Number(b.moved)||distance(a,target)-distance(b,target)),u=units[0];if(u){choose(u.x,u.y);focusTile(u.x,u.y);}else ok=false;}
     else if(kind==='base-tab')baseTab=arg;
@@ -537,16 +559,40 @@
     const en=window.HematiteI18n?.lang==='en',n=x=>en?window.HematiteI18n.translate(x):x,t=team(0),flows=[...(next?.flows||t.lastFlows||[])];
     for(const type of ['waterPlant','oxygenPlant','greenhouse'])if(!t.facilities.some(f=>f.type===type))flows.push({type,blocked:en?'Not built':'未設置',input:{},output:{},missing:[]});
     const amounts=values=>Object.entries(values||{}).map(([k,v])=>`${icon(k)} ${n(names[k])} ${v}`).join(' + ');
-    const cards=flows.map(f=>{const b=buildings[f.type],source=b.resource,missing=f.missing?.map(v=>`${n(names[v.resource])} ${v.amount}`).join(' + '),reason=missing?`${en?'Need':'不足'} ${missing}`:n(f.blocked),input=amounts(b.input)||(source?en?'Map source':'地図の資源':f.type==='moxie'?'CO₂':''),output=amounts(f.blocked?b.out:f.output),cmd=source?`focus-site:${f.x},${f.y}`:`open-device:${f.type}`;return `<article class="production-line ${f.blocked?'stopped':''}"><b>${icon(f.type)} ${n(b.name)}</b><span>${f.blocked?`${en?'Stopped':'停止'}: ${reason}`:en?'Running next turn':'次ターンに稼働'}</span><p>${input} ＋ ⚡${b.power} → ${output}${f.blocked?` <strong>${en?'(output 0)':'（生産0）'}</strong>`:''}</p><button data-action="${cmd}">${source?en?'Show source':'採取地点を見る':en?'View / expand machine':'装置を確認・増設'}</button></article>`;});
+    const cards=flows.map(f=>{
+      const b=buildings[f.type],source=b.resource,missing=f.missing?.map(v=>`${n(names[v.resource])} ${v.amount}`).join(' + '),reason=missing?`${en?'Need':'不足'} ${missing}`:n(f.blocked);
+      const input=amounts(b.input)||(source?en?'Map source':'地図の資源':f.type==='moxie'?'CO₂':''),output=amounts(f.blocked?b.out:f.output);
+      const view=source?`focus-site:${f.x},${f.y}`:`open-device:${f.type}`;
+      let fix=view,fixLabel=source?en?'Show source':'採取地点を見る':en?'View / expand machine':'装置を確認・増設';
+      if(f.blocked==='電力不足'){fix='open-device:solar';fixLabel=en?'Check power & solar':'発電設備と電力を見る';}
+      else if(f.missing?.length){const raw=f.missing[0].resource;fix=`production-resource:${raw}`;fixLabel=en?`Find more ${n(names[raw])}`:`${n(names[raw])}を増やす`;}
+      else if(f.blocked==='Podの接続なし'&&source){const pod=areaOwner(f.x,f.y);fix=pod?.kind==='relay'?`focus-site:${pod.x},${pod.y}`:'resource-targets';fixLabel=en?'Check connected Pod':'接続Podを確認';}
+      else if(f.blocked==='故障'){fixLabel=en?'Find repair action':'修理方法を見る';}
+      else if(f.blocked==='未設置'||f.blocked==='Not built'){fixLabel=en?'Build this machine':'この装置を建設';}
+      return `<article class="production-line ${f.blocked?'stopped':''}"><b>${icon(f.type)} ${n(b.name)}</b><span>${f.blocked?`${en?'Stopped':'停止'}: ${reason}`:en?'Running next turn':'次ターンに稼働'}</span><p>${input} ＋ ⚡${b.power} → ${output}${f.blocked?` <strong>${en?'(output 0)':'（生産0）'}</strong>`:''}</p><button data-action="${fix}">${fixLabel}</button></article>`;
+    });
     return `<details class="production-lines" open><summary>${en?'What is being produced?':'何が生産される？'}</summary>${cards.join('')}</details>`;
   }
-  function inventoryHtml(){
-    const t=team(0),en=window.HematiteI18n?.lang==='en',n=x=>en?window.HematiteI18n.translate(x):x,next=state.outcome?null:forecast(0),balance=next?.balance||t.lastBalance||{};
+  function productionOverviewHtml(next){
+    const en=window.HematiteI18n?.lang==='en',n=x=>en?window.HematiteI18n.translate(x):x,{life,extras}=productionSummaryData(next);
+    const cards=[...life,...extras].map(item=>`<button class="production-product ${item.reason?'stopped':''}" data-action="production-resource:${item.key}">${icon(item.key)}<span><b>${n(names[item.key])}</b><small>${en?'Made':'生産'} ${item.produced} · ${en?'Stock change':'残量差'} ${item.net>0?'+':''}${item.net}${item.reason?` · ${item.reason}`:''}</small></span><span aria-hidden="true">›</span></button>`).join('');
+    return `<section class="production-overview"><h3>${en?'Next production':'次の生産'}</h3><p>${en?'Gross output; stock change also includes processing, living needs and repairs. Before rival actions.':'装置の生産量と、加工・生活・修理後の残量差。相手の行動前の予測。'}</p><div class="production-products">${cards}</div></section>`;
+  }
+  function inventoryHtml(nextOverride){
+    const t=team(0),en=window.HematiteI18n?.lang==='en',n=x=>en?window.HematiteI18n.translate(x):x,next=nextOverride===undefined?(state.outcome?null:forecast(0)):nextOverride,balance=next?.balance||t.lastBalance||{};
     const change=k=>next?.netAll[k]??t.lastNetAll?.[k]??0,sign=v=>v>0?`+${v}`:String(v);
     const device={water:'waterPlant',oxygen:'oxygenPlant',food:'greenhouse',hydrogen:'oxygenPlant',metal:'smelter',resin:'recycler',parts:'workshop',ceramic:'kiln'};
     const stocks=keys=>keys.map(k=>{const b=balance[k]||{},delta=change(k),route=device[k]?`open-device:${device[k]}`:'resource-targets';return `<article class="stock-balance" data-stock="${k}"><div>${icon(k)} <b>${n(names[k])}</b><strong>${t.stock[k]} → ${next?.stock[k]??t.stock[k]}</strong></div><p class="net ${delta<0?'negative':''}">${en?'Net change':'残量の変化'} <b>${sign(delta)}</b></p><small>${en?'Produced':'生産'} +${b.produced||0} − ${en?'Processing':'加工に使用'} ${b.processing||0}${['water','oxygen','food'].includes(k)?` − ${en?'Living':'生活'} ${b.life||0}`:''}${b.maintenance?` − ${en?'Repairs':'修理'} ${b.maintenance}`:''}</small>${b.unmet?`<p class="unmet">${en?'Unmet need':'必要量に不足'} ${b.unmet}</p>`:''}${k==='scrap'?`<small>${en?'Brought from Earth · finite supply':'持参した材料 · 有限'}</small>`:`<button data-action="${route}">${en?'How to get more':'増やすには'}</button>`}</article>`;}).join('');
     return `<p>${en?`Industry ${t.dp} · +4 after a supplied turn`:`開発力 ${t.dp} · 生活を維持できれば毎ターン+4`}</p><p>${en?'Next turn, before rival actions':'相手の行動前の次ターン予測'}${next?.event?` · ${n(eventName(next.event))}`:''}</p><div class="life-balances">${stocks(['water','oxygen','food'])}</div>${powerBalanceHtml(next)}<div class="inventory-actions"><button data-action="resource-targets">${en?'Find resources / Pods':'資源・Podを探す'}</button><button data-action="open-base">${en?'View life support':'生命維持設備を見る'}</button></div>${productionLinesHtml(next)}<details class="material-balances"><summary>${en?'Materials, parts & how to make them':'素材・部品の在庫と作り方'}</summary><p>${en?'Ore + hydrogen → metal. Scrap → recycled resin → parts. The initial scrap supply is finite.':'鉄を含む原料＋水素 → 鉄系材料。廃樹脂 → 再生樹脂 → 部品。持参した廃樹脂は有限です。'}</p><div class="life-balances">${stocks(Object.keys(names).filter(k=>!['water','oxygen','food'].includes(k)))}</div></details><h3>${en?'Water and power priority':'水と電力の配分'}</h3><p>${en?'Life support runs before industrial extraction. Choose oxygen or food first when water or power is short.':'生命維持を工業用の採取より先に動かします。水・電力が足りないときは、酸素と食料のどちらを先に作るか選べます。'}</p><div class="policy-controls"><button data-action="policy:oxygen" aria-pressed="${t.policy!=='food'}">${en?'Prioritize Oxygen':'酸素を優先'}</button><button data-action="policy:food" aria-pressed="${t.policy==='food'}">${en?'Prioritize Food':'食料を優先'}</button></div>`;
   }
+  function openProduction(){const en=window.HematiteI18n?.lang==='en',next=state.outcome?null:forecast(0);dialog(en?'Production & use':'生産と使用',productionOverviewHtml(next)+inventoryHtml(next));}
+  function guideProductionResource(key){
+    const raw={ice:'ice',ore:'iron',regolith:'regolith'},device={water:'waterPlant',oxygen:'oxygenPlant',food:'greenhouse',hydrogen:'oxygenPlant',metal:'smelter',resin:'recycler',parts:'workshop',ceramic:'kiln'};
+    if(raw[key]){const sites=state.tiles.filter(q=>q.resource===raw[key]&&visible(0,q.x,q.y)).sort((a,b)=>Number(resourceConnected(0,b))-Number(resourceConnected(0,a))||Number(!!b.facility)-Number(!!a.facility));if(sites.length){focusSite(sites[0].x,sites[0].y);return;}dialog(window.HematiteI18n?.lang==='en'?'Find source':'資源を探す',resourceTargets());return;}
+    if(device[key]){baseTab=Object.keys(baseGroups).find(tab=>baseGroups[tab].includes(device[key]))||'life';baseFocus=device[key];if($('detail-dialog').open)$('detail-dialog').close();showPage('base');requestAnimationFrame(()=>document.querySelector('.base-device.focused')?.scrollIntoView({block:'center'}));return;}
+    if(key==='scrap')dialog(window.HematiteI18n?.lang==='en'?'Finite carried material':'持参した材料',window.HematiteI18n?.lang==='en'?'<p>Waste resin was carried from Earth. This match has no local replacement route; use it carefully.</p>':'<p>廃樹脂は地球から持参した有限の材料です。この対戦では現地で補充できません。使い道を選んでください。</p>');
+  }
+  $('production-summary').onclick=openProduction;$('production-nav').onclick=openProduction;
   $('supply-chip').onclick=()=>dialog('資源の在庫',inventoryHtml());
   $('close-dialog').onclick=()=>$('detail-dialog').close();$('reset-btn').onclick=()=>{if(confirm('現在の対戦を消して、最初から始めますか？'))reset();};
   function enablePan(scroller){
@@ -567,7 +613,7 @@
   updateDisplayScale();
   state=load()||fresh();if(!state.logs.length)addLog('Arcadia Planitiaに着陸','実際の火星地形で、二つの開拓団が文明を育てる。');const ui=loadUi();if(!ui&&document.documentElement.classList.contains('desktop-game'))mapZoom=1;if(ui&&ui.uiVersion!==2&&state.round===1&&!state.tiles[idx(3,7)].surveyed[0]){selected={x:3,y:7};selectedUnitId=null;}if(document.documentElement.classList.contains('desktop-game'))sheetExpanded=true;render();updateCamera(false);if(ui){$('map-scroller').scrollLeft=ui.scrollLeft||0;$('map-scroller').scrollTop=ui.scrollTop||0;$('tree-window').scrollLeft=ui.techLeft||0;$('tree-window').scrollTop=ui.techTop||0;}else focusTile(2,8);if(location.hash==='#lab')showPage('lab');else if(ui?.page&&ui.page!=='map')showPage(ui.page);if(loadWarning){save();toast(loadWarning);}if(state.outcome&&!new URLSearchParams(location.search).has('test'))setTimeout(showResult,0);
   window.HematiteGame={get state(){return state;},reset,select:choose,build,buildBase,canBuildBase,resourceConnected,showPage,research,survey,recruit,move,deploy,attack,capture,repair,repairBase,reinforceCore,upgradeWorkshop,upgradeUnit,endRound,production,forecast,inSupply,inComms,canBuild,save};
-  if(new URLSearchParams(location.search).has('test')){const script=document.createElement('script');script.src=`tests/task4-smoke.js?v=${Date.now()}`;document.body.appendChild(script);}
+  if(new URLSearchParams(location.search).has('test')){const script=document.createElement('script');script.src=`tests/${new URLSearchParams(location.search).get('test')==='task5'?'task5-smoke.js':'task4-smoke.js'}?v=${Date.now()}`;document.body.appendChild(script);}
 })();
 
 

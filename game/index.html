@@ -11,10 +11,11 @@
   <link rel="stylesheet" href="ux.css?v=task2-11">
   <link rel="stylesheet" href="task3.css?v=reserves-1">
   <link rel="stylesheet" href="task4.css?v=8">
-  <script src="icons.js?v=mountain-2" defer></script>
+  <link rel="stylesheet" href="task5.css?v=6">
+  <script src="icons.js?v=task5-1" defer></script>
   <script src="assets/arcadia_crater_terrain.js?v=mountain-2" defer></script>
-  <script src="i18n.js?v=task4-1" defer></script>
-  <script src="game.js?v=desktop-2" defer></script>
+  <script src="i18n.js?v=task5-1" defer></script>
+  <script src="game.js?v=task5-3" defer></script>
 </head>
 <body>
   <div class="app map-active">
@@ -36,7 +37,7 @@
       <section id="log-page" class="page hidden"><div class="page-head"><small class="kicker">STORYBOARD</small><h1>開拓の記録</h1><p>発明と判断が、戦況を変えていく。</p></div><div id="log-list" class="log-list"></div><button id="reset-btn" class="outline danger">新しい対戦を始める</button></section>
       <section id="observe-page" class="page hidden"><div class="page-head"><small class="kicker">NASA OBSERVATION / SOURCE</small><h1>本物の火星を読む。</h1><p>観測とゲームの推定を区別して、候補地を選ぶ。</p></div><div class="observation"><img src="assets/arcadia_crater_surface.webp" alt="Arcadia Planitiaのクレーター実測標高から描いた地形"><p>Arcadia Planitiaの約2.6 km四方。HiRISEの実測標高を着色・強調して描いた盤面です。各マスは約237 m。資源、基地、通行制限はゲーム上の仮定です。</p><p>位置：北緯38.1276〜38.1717°、東経191.5567〜191.6106°。北が上。</p><a href="https://www.uahirise.org/dtm/dtm.php?ID=ESP_025735_2185" target="_blank" rel="noopener">HiRISE DTMと原観測 ↗</a></div><div class="observation"><img src="assets/arcadia_crater_altimetry.jpg" alt="HiRISE公開のクレーター全域標高図"><p>HiRISE公開の標高図。こちらはクレーター周辺を広く示す原資料で、盤面はその一部です。</p><a href="https://www.uahirise.org/dtm/dtm.php?ID=ESP_025735_2185" target="_blank" rel="noopener">全域の観測情報 ↗</a></div><div class="observation"><img src="../assets/nasa_maps/swim_ice.jpg" alt="NASA SWIMの広域地下氷候補図"><p>SWIMは広域で地下氷の候補を示します。この盤面の小さなマスに氷がある証拠ではなく、採取量も分からないため、探査で得る結果はゲーム上の推定です。</p><a href="https://www.jpl.nasa.gov/images/pia26045-swim-map-shows-subsurface-water-ice-on-mars/" target="_blank" rel="noopener">NASAの説明 ↗</a></div><p class="credit">地形：NASA/JPL-Caltech/UArizona · SWIM：NASA/JPL-Caltech/Planetary Science Institute<br>詳細：<a href="assets/sources.md">地図の出典と加工</a></p></section>
     </main>
-    <nav class="bottom-nav" aria-label="画面切り替え"><button id="menu-toggle" aria-label="メニューを開く" aria-expanded="false"><span>☰</span>メニュー</button><button data-page="lab"><span>⌘</span>発明</button><button id="end-turn" class="next-turn"><span>↪</span>ターン終了</button><div id="menu-popup" class="menu-popup hidden"><button data-page="map">◈ 地図</button><button id="resources-button" type="button">◉ 資源と電力</button><button data-page="log">☷ 記録</button><button id="observe-btn" data-page="observe">◎ 観測と出典</button><button id="language-toggle" type="button" aria-label="Switch language">JP / EN</button></div></nav>
+    <nav class="bottom-nav" aria-label="画面切り替え"><button id="production-summary" type="button" aria-label="次の生産を見る"></button><button id="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"><span class="nav-icon">☰</span><span class="nav-label">メニュー</span></button><button id="production-nav" type="button" aria-label="生産の内訳を開く"><span class="nav-icon" id="production-nav-icon"></span><span class="nav-label">生産</span></button><button id="research-nav" type="button" data-page="lab" aria-label="研究ツリーを開く"><span class="nav-icon" id="research-nav-icon"></span><span class="nav-label">研究</span></button><button id="end-turn" class="next-turn" type="button"><span class="nav-icon">↪</span><span class="nav-label">ターン終了</span></button><div id="menu-popup" class="menu-popup hidden"><button data-page="map">◈ 地図</button><button id="resources-button" type="button">◉ 資源と電力</button><button data-page="log">☷ 記録</button><button id="observe-btn" data-page="observe">◎ 観測と出典</button><button id="language-toggle" type="button" aria-label="Switch language">JP / EN</button></div></nav>
     <div id="toast" class="toast hidden" role="status"></div>
     <dialog id="detail-dialog"><button id="close-dialog" class="close">×</button><div id="dialog-content"></div></dialog>
     <dialog id="turn-dialog" class="turn-dialog"><div id="turn-content"></div><button id="turn-continue" type="button">続ける</button></dialog>
