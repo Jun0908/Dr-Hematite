@@ -1,30 +1,47 @@
 # Dr. Hematite
 
-NASAなどの火星観測データを手がかりに資源を探し、化学・素材の発明で基地を育てる教育ゲームです。現在はArcadia PlanitiaのHiRISE実測標高を使った、2陣営の対戦試作を制作しています。資源と中継Podを争いながら、水・酸素・食料を維持し、相手の中枢基地を攻略します。対象は小学校高学年から高校生です。
+**Explore Mars. Invent what keeps you alive.**
 
-NASA Space Apps Challenge 2026「Build a Junior Astronaut Mission Trainer」向けの企画です。観測された地形と、ゲーム用に置いた局所資源・設備性能を区別しています。
+English | [日本語](README.ja.md)
 
-## ゲームを開く
+Dr. Hematite is a browser-based science strategy game for upper elementary through high school students. Explore a Martian landscape built from NASA HiRISE elevation data, compete for resources and relay Pods, and grow a base through chemistry and engineering. Water, oxygen, food, and electricity are connected: every new invention changes what the base can produce and survive.
 
-[公開版・日本語](https://dr-hematite.vercel.app/game/?lang=ja) · [Public game · English](https://dr-hematite.vercel.app/game/?lang=en)
+Created for the NASA Space Apps Challenge 2026 prompt **Build a Junior Astronaut Mission Trainer**.
 
-プロジェクトのルートで `node scripts/serve_game.js` を実行し、[日本語版](http://127.0.0.1:8765/game/?lang=ja)または[英語版](http://127.0.0.1:8765/game/?lang=en)を開いてください。ローカルサーバーが動いている間にアクセスできます。ビルドは不要です。
+**Play online:** [English](https://dr-hematite.vercel.app/game/?lang=en) · [日本語](https://dr-hematite.vercel.app/game/?lang=ja)
 
-初期状態では氷採取場、採水設備、電解設備、温室、電源、蓄電設備が稼働しています。地図でPodと追加資源を確保し、本拠地で加工装置を増設します。水・酸素・食料の表示を押すと、生産量、加工と生活で使う量、残る量を確認できます。詳しい操作は[ゲームの案内](game/README.md)と[試作規則](game/RULES.md)を参照してください。
+## How the game works
 
-## 現在地と次の作業
+1. Start with working ice collection, water processing, electrolysis, farming, solar power, and battery storage.
+2. Survey the map, secure relay Pods and resource sites, and bring raw materials back to headquarters. A competing faction can contest the same routes.
+3. Research technologies and build equipment to turn ice into water, water into oxygen and hydrogen, minerals into metal, and recycled plastic into parts.
+4. Respond to dust storms, power shortages, and equipment failures. Check each facility's inputs, outputs, and reasons for stopping before deciding what to build next.
 
-- [現在地](docs/CURRENT_STATE.md)：動く機能、検証済みの範囲、未評価の点。
-- [Task5](Task5.md)：地図の下部に生産中の資源を示し、研究ボタンを分かりやすくする次の作業。
-- [初期生命維持と資源収支](docs/design/LIFE_SUPPORT_BALANCE.md)：水・酸素・食料、電力、Pod、素材の試作バランス。
-- [確認記録](game/tests/PLAYTEST.md)：機能・画面・経済の検証結果。
+The 11 × 11 battlefield, headquarters, research tree, and illustrated science lessons connect exploration to production and invention. The game interface is available in English and Japanese; the science lessons are currently in English.
 
-## 科学資料と出典
+## NASA data and scientific grounding
 
-- [NASA資源地図](docs/science/NASA_RESOURCE_MAPS.md)：観測から分かることと、ゲーム地図で仮定したこと。
-- [科学・発明ロードマップ](docs/science/SCIENCE_ROADMAP.md)：氷から水・酸素・食料、鉱物から金属、樹脂から部品へ至る道筋。
-- [地図の出典と加工](game/assets/sources.md)：HiRISE地形と画像の利用記録。
-- [課題と審査](docs/submission/NASA_CHALLENGE_JUDGING.md)：提出先の課題と評価観点。
-- [判断の履歴](docs/DECISIONS.md)：共有済みの方針と試作値の区別。
+- **Measured terrain:** The battlefield uses elevation from the [HiRISE digital terrain model of a crater in Arcadia Planitia](https://www.uahirise.org/dtm/dtm.php?ID=ESP_025735_2185).
+- **Search for water ice:** The [NASA SWIM map](https://www.jpl.nasa.gov/images/pia26045-swim-map-shows-subsurface-water-ice-on-mars/) is shown as regional evidence of buried ice. Players survey individual sites in the game.
+- **Science behind inventions:** Lessons on oxygen production, cultivation, materials, and manufacturing link to NASA explanations and research.
 
-エージェント向けの共通文脈は[AGENTS.md](AGENTS.md)にあります。以前の構想と資料は `_archive/` に保存しています。
+Local deposits, extraction yields, equipment costs, and production rates are game rules, not measurements from NASA. See the [map sources and processing record](game/assets/sources.md) for the data boundary and credits.
+
+## Run locally
+
+From the repository root, run:
+
+```bash
+node scripts/serve_game.js
+```
+
+Open [English](http://127.0.0.1:8765/game/?lang=en) or [Japanese](http://127.0.0.1:8765/game/?lang=ja). No build step is required.
+
+## Explore the project
+
+- [Game guide](game/README.md) and [prototype rules](game/RULES.md)
+- [Current state](docs/CURRENT_STATE.md), [Task 5](Task5.md), and [playtest record](game/tests/PLAYTEST.md)
+- [NASA resource maps](docs/science/NASA_RESOURCE_MAPS.md) and [science and invention roadmap](docs/science/SCIENCE_ROADMAP.md)
+- [Life-support balance](docs/design/LIFE_SUPPORT_BALANCE.md) and [decision history](docs/DECISIONS.md)
+
+The [AGENTS.md](AGENTS.md) file provides project context for contributors. Earlier concepts are preserved in `_archive/`.
