@@ -6,6 +6,8 @@ NASA Space Apps Challenge 2026「Build a Junior Astronaut Mission Trainer」向�
 
 ## ゲームを開く
 
+[公開版・日本語](https://dr-hematite.vercel.app/game/?lang=ja) · [Public game · English](https://dr-hematite.vercel.app/game/?lang=en)
+
 プロジェクトのルートで `node scripts/serve_game.js` を実行し、[日本語版](http://127.0.0.1:8765/game/?lang=ja)または[英語版](http://127.0.0.1:8765/game/?lang=en)を開いてください。ローカルサーバーが動いている間にアクセスできます。ビルドは不要です。
 
 初期状態では氷採取場、採水設備、電解設備、温室、電源、蓄電設備が稼働しています。地図でPodと追加資源を確保し、本拠地で加工装置を増設します。水・酸素・食料の表示を押すと、生産量、加工と生活で使う量、残る量を確認できます。詳しい操作は[ゲームの案内](game/README.md)と[試作規則](game/RULES.md)を参照してください。
