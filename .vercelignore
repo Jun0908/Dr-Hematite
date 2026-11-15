@@ -1,0 +1,8 @@
+_archive/
+.playwright-mcp/
+.video-tools/
+.vercel/
+assets/video/
+game/tests/
+prototype/
+scripts/
