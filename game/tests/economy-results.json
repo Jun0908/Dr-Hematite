@@ -1,0 +1,705 @@
+{
+  "initial": {
+    "next": {
+      "net": {
+        "water": 0,
+        "oxygen": 1,
+        "food": 1
+      },
+      "energy": {
+        "supply": 12,
+        "demand": 9,
+        "requested": 9,
+        "pods": 0,
+        "capacity": 7,
+        "charged": 0,
+        "discharged": 0,
+        "curtailed": 3
+      },
+      "battery": 7
+    },
+    "turns": [
+      {
+        "round": 2,
+        "water": 12,
+        "oxygen": 13,
+        "food": 13,
+        "energy": {
+          "supply": 12,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 3
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 3,
+        "water": 12,
+        "oxygen": 14,
+        "food": 14,
+        "energy": {
+          "supply": 12,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 3
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 4,
+        "water": 12,
+        "oxygen": 15,
+        "food": 15,
+        "energy": {
+          "supply": 12,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 3
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 5,
+        "water": 12,
+        "oxygen": 16,
+        "food": 16,
+        "energy": {
+          "supply": 5,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 4,
+          "curtailed": 0
+        },
+        "battery": 3,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 6,
+        "water": 13,
+        "oxygen": 17,
+        "food": 15,
+        "energy": {
+          "supply": 5,
+          "demand": 7,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 2,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": [
+          [
+            "greenhouse",
+            "電力不足"
+          ]
+        ]
+      },
+      {
+        "round": 7,
+        "water": 13,
+        "oxygen": 18,
+        "food": 16,
+        "energy": {
+          "supply": 12,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 3,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 4,
+        "shortage": 0,
+        "stopped": []
+      }
+    ]
+  },
+  "solar": {
+    "next": {
+      "net": {
+        "water": 0,
+        "oxygen": 1,
+        "food": 1
+      },
+      "energy": {
+        "supply": 15,
+        "demand": 9,
+        "requested": 9,
+        "pods": 0,
+        "capacity": 7,
+        "charged": 0,
+        "discharged": 0,
+        "curtailed": 6
+      },
+      "battery": 7
+    },
+    "turns": [
+      {
+        "round": 2,
+        "water": 12,
+        "oxygen": 13,
+        "food": 13,
+        "energy": {
+          "supply": 15,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 6
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 3,
+        "water": 12,
+        "oxygen": 14,
+        "food": 14,
+        "energy": {
+          "supply": 15,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 6
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 4,
+        "water": 12,
+        "oxygen": 15,
+        "food": 15,
+        "energy": {
+          "supply": 15,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 6
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 5,
+        "water": 12,
+        "oxygen": 16,
+        "food": 16,
+        "energy": {
+          "supply": 6,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 3,
+          "curtailed": 0
+        },
+        "battery": 4,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 6,
+        "water": 12,
+        "oxygen": 17,
+        "food": 17,
+        "energy": {
+          "supply": 6,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 3,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 7,
+        "water": 12,
+        "oxygen": 18,
+        "food": 18,
+        "energy": {
+          "supply": 15,
+          "demand": 9,
+          "requested": 9,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 6,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      }
+    ]
+  },
+  "water": {
+    "next": {
+      "net": {
+        "water": 3,
+        "oxygen": 1,
+        "food": 1
+      },
+      "energy": {
+        "supply": 12,
+        "demand": 11,
+        "requested": 11,
+        "pods": 0,
+        "capacity": 7,
+        "charged": 0,
+        "discharged": 0,
+        "curtailed": 1
+      },
+      "battery": 7
+    },
+    "turns": [
+      {
+        "round": 2,
+        "water": 15,
+        "oxygen": 13,
+        "food": 13,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 3,
+        "water": 18,
+        "oxygen": 14,
+        "food": 14,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 4,
+        "water": 21,
+        "oxygen": 15,
+        "food": 15,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 5,
+        "water": 24,
+        "oxygen": 16,
+        "food": 16,
+        "energy": {
+          "supply": 5,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 6,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 6,
+        "water": 26,
+        "oxygen": 15,
+        "food": 15,
+        "energy": {
+          "supply": 5,
+          "demand": 5,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": [
+          [
+            "waterPlant",
+            "電力不足"
+          ],
+          [
+            "oxygenPlant",
+            "電力不足"
+          ],
+          [
+            "greenhouse",
+            "電力不足"
+          ]
+        ]
+      },
+      {
+        "round": 7,
+        "water": 29,
+        "oxygen": 16,
+        "food": 16,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 1,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 2,
+        "shortage": 0,
+        "stopped": []
+      }
+    ]
+  },
+  "food": {
+    "next": {
+      "net": {
+        "water": -1,
+        "oxygen": 1,
+        "food": 3
+      },
+      "energy": {
+        "supply": 12,
+        "demand": 11,
+        "requested": 11,
+        "pods": 0,
+        "capacity": 7,
+        "charged": 0,
+        "discharged": 0,
+        "curtailed": 1
+      },
+      "battery": 7
+    },
+    "turns": [
+      {
+        "round": 2,
+        "water": 11,
+        "oxygen": 13,
+        "food": 15,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 3,
+        "water": 10,
+        "oxygen": 14,
+        "food": 18,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 4,
+        "water": 9,
+        "oxygen": 15,
+        "food": 21,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 1
+        },
+        "battery": 7,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 5,
+        "water": 8,
+        "oxygen": 16,
+        "food": 24,
+        "energy": {
+          "supply": 5,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 6,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 6,
+        "water": 10,
+        "oxygen": 15,
+        "food": 23,
+        "energy": {
+          "supply": 5,
+          "demand": 5,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 0,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 1,
+        "shortage": 0,
+        "stopped": [
+          [
+            "oxygenPlant",
+            "電力不足"
+          ],
+          [
+            "greenhouse",
+            "電力不足"
+          ],
+          [
+            "greenhouse",
+            "電力不足"
+          ]
+        ]
+      },
+      {
+        "round": 7,
+        "water": 9,
+        "oxygen": 16,
+        "food": 26,
+        "energy": {
+          "supply": 12,
+          "demand": 11,
+          "requested": 11,
+          "pods": 0,
+          "capacity": 7,
+          "charged": 1,
+          "discharged": 0,
+          "curtailed": 0
+        },
+        "battery": 2,
+        "shortage": 0,
+        "stopped": []
+      }
+    ]
+  },
+  "metal": {
+    "log": [
+      {
+        "round": 1,
+        "action": "research mineral"
+      },
+      {
+        "round": 1,
+        "action": "extra water processor"
+      },
+      {
+        "round": 1,
+        "action": "extra solar"
+      },
+      {
+        "round": 1,
+        "action": "scout to mineral"
+      },
+      {
+        "round": 1,
+        "action": "survey mineral"
+      },
+      {
+        "round": 1,
+        "action": "crawler toward Pod"
+      },
+      {
+        "round": 2,
+        "action": "research smelting"
+      },
+      {
+        "round": 2,
+        "action": "advance crawler"
+      },
+      {
+        "round": 3,
+        "action": "reach Pod"
+      },
+      {
+        "round": 3,
+        "action": "capture Pod"
+      },
+      {
+        "round": 3,
+        "action": "extract ore"
+      },
+      {
+        "round": 4,
+        "action": "second solar"
+      },
+      {
+        "round": 5,
+        "action": "build smelter"
+      }
+    ],
+    "turns": [
+      {
+        "round": 6,
+        "stock": {
+          "ice": 0,
+          "water": 28,
+          "oxygen": 17,
+          "food": 15,
+          "hydrogen": 5,
+          "ore": 4,
+          "metal": 0,
+          "regolith": 0,
+          "ceramic": 0,
+          "scrap": 3,
+          "resin": 2,
+          "parts": 2
+        },
+        "shortage": 0,
+        "stopped": [
+          [
+            "greenhouse",
+            "電力不足"
+          ],
+          [
+            "mine",
+            "電力不足"
+          ],
+          [
+            "smelter",
+            "電力不足"
+          ]
+        ]
+      },
+      {
+        "round": 7,
+        "stock": {
+          "ice": 0,
+          "water": 31,
+          "oxygen": 18,
+          "food": 16,
+          "hydrogen": 5,
+          "ore": 5,
+          "metal": 1,
+          "regolith": 0,
+          "ceramic": 0,
+          "scrap": 3,
+          "resin": 2,
+          "parts": 2
+        },
+        "shortage": 0,
+        "stopped": []
+      },
+      {
+        "round": 8,
+        "stock": {
+          "ice": 0,
+          "water": 34,
+          "oxygen": 19,
+          "food": 17,
+          "hydrogen": 5,
+          "ore": 6,
+          "metal": 2,
+          "regolith": 0,
+          "ceramic": 0,
+          "scrap": 3,
+          "resin": 2,
+          "parts": 1
+        },
+        "shortage": 0,
+        "stopped": []
+      }
+    ]
+  }
+}

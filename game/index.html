@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#241f28">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Dr. Hematite | 火星文明戦線</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <link rel="stylesheet" href="ux.css?v=task2-11">
+  <link rel="stylesheet" href="task3.css?v=reserves-1">
+  <link rel="stylesheet" href="task4.css?v=8">
+  <script src="icons.js?v=mountain-2" defer></script>
+  <script src="assets/arcadia_crater_terrain.js?v=mountain-2" defer></script>
+  <script src="i18n.js?v=task4-1" defer></script>
+  <script src="game.js?v=desktop-2" defer></script>
+</head>
+<body>
+  <div class="app map-active">
+    <div class="round-chip" aria-label="現在のラウンド"><small>TURN</small><strong id="round">01</strong></div>
+    <section class="hud" aria-label="現在の状態">
+      <button id="dp-chip" class="hud-chip"><small>研究・製作</small><strong id="dp">0</strong></button>
+      <button id="energy-chip" class="hud-chip"><small>発電 / 需要 / 蓄電</small><strong id="energy">0</strong></button>
+      <button id="supply-chip" class="hud-chip"><small>水・酸素・食料</small><strong id="supply">--</strong></button>
+    </section>
+    <main>
+      <section id="base-page" class="page hidden" aria-label="本拠地"><button class="base-back" data-page="map">← 地図</button><div id="base-content"></div></section>
+      <section id="map-page" class="page">
+        <div id="event-banner" class="event-banner"></div>
+        <div class="map-shell"><div class="map-scroller" id="map-scroller"><div class="map" id="map" aria-label="HiRISE実標高を用いたArcadia Planitiaのゲーム地図"></div></div><div class="map-scale"><span>▲ N</span><span>HiRISE DTM / DTEEC_025735_2185 · 資源と施設はゲーム上の配置</span></div><div class="map-zoom"><button id="zoom-out" aria-label="地図を縮小">−</button><button id="zoom-in" aria-label="地図を拡大">＋</button><button id="zoom-fit" aria-label="地図全体を表示">全体</button></div></div>
+        <div class="map-caption"><span class="legend-me">▶ あなた / アレス</span><span class="legend-ai">◆ ライバル / ベガ</span><span>観測画像上の施設・資源はゲーム用の仮定</span></div>
+        <div id="action-sheet" class="action-sheet"></div>
+      </section>
+      <section id="lab-page" class="page hidden"><div class="lab-head"><div><small>INVENTION TREE</small><h1>火星で、文明を発明する</h1></div><button data-page="map" class="outline">地図へ戻る</button></div><p class="lab-hint">研究を進め、地図で採取し、本拠地で装置を作ろう。学習はいつでも任意。</p><div class="lab-layout"><div class="tree-frame"><div class="tree-window" id="tree-window"><div id="tech-list" class="tech-list"></div></div><div class="tree-controls"><button id="tech-zoom-out" aria-label="研究ツリーを縮小">−</button><button id="tech-zoom-in" aria-label="研究ツリーを拡大">＋</button></div></div><div id="tech-detail" class="tech-detail"></div></div><div id="tech-route" class="tech-route"></div><div class="atlas-links"><a href="learn/atlas.html?map=water" target="_blank" rel="noopener">水・酸素・食料の全体図 ↗</a><a href="learn/atlas.html?map=materials" target="_blank" rel="noopener">素材・3Dプリントの全体図 ↗</a><a href="learn/atlas.html?map=phb" target="_blank" rel="noopener">PHBの全体図 ↗</a></div></section>
+      <section id="log-page" class="page hidden"><div class="page-head"><small class="kicker">STORYBOARD</small><h1>開拓の記録</h1><p>発明と判断が、戦況を変えていく。</p></div><div id="log-list" class="log-list"></div><button id="reset-btn" class="outline danger">新しい対戦を始める</button></section>
+      <section id="observe-page" class="page hidden"><div class="page-head"><small class="kicker">NASA OBSERVATION / SOURCE</small><h1>本物の火星を読む。</h1><p>観測とゲームの推定を区別して、候補地を選ぶ。</p></div><div class="observation"><img src="assets/arcadia_crater_surface.webp" alt="Arcadia Planitiaのクレーター実測標高から描いた地形"><p>Arcadia Planitiaの約2.6 km四方。HiRISEの実測標高を着色・強調して描いた盤面です。各マスは約237 m。資源、基地、通行制限はゲーム上の仮定です。</p><p>位置：北緯38.1276〜38.1717°、東経191.5567〜191.6106°。北が上。</p><a href="https://www.uahirise.org/dtm/dtm.php?ID=ESP_025735_2185" target="_blank" rel="noopener">HiRISE DTMと原観測 ↗</a></div><div class="observation"><img src="assets/arcadia_crater_altimetry.jpg" alt="HiRISE公開のクレーター全域標高図"><p>HiRISE公開の標高図。こちらはクレーター周辺を広く示す原資料で、盤面はその一部です。</p><a href="https://www.uahirise.org/dtm/dtm.php?ID=ESP_025735_2185" target="_blank" rel="noopener">全域の観測情報 ↗</a></div><div class="observation"><img src="../assets/nasa_maps/swim_ice.jpg" alt="NASA SWIMの広域地下氷候補図"><p>SWIMは広域で地下氷の候補を示します。この盤面の小さなマスに氷がある証拠ではなく、採取量も分からないため、探査で得る結果はゲーム上の推定です。</p><a href="https://www.jpl.nasa.gov/images/pia26045-swim-map-shows-subsurface-water-ice-on-mars/" target="_blank" rel="noopener">NASAの説明 ↗</a></div><p class="credit">地形：NASA/JPL-Caltech/UArizona · SWIM：NASA/JPL-Caltech/Planetary Science Institute<br>詳細：<a href="assets/sources.md">地図の出典と加工</a></p></section>
+    </main>
+    <nav class="bottom-nav" aria-label="画面切り替え"><button id="menu-toggle" aria-label="メニューを開く" aria-expanded="false"><span>☰</span>メニュー</button><button data-page="lab"><span>⌘</span>発明</button><button id="end-turn" class="next-turn"><span>↪</span>ターン終了</button><div id="menu-popup" class="menu-popup hidden"><button data-page="map">◈ 地図</button><button id="resources-button" type="button">◉ 資源と電力</button><button data-page="log">☷ 記録</button><button id="observe-btn" data-page="observe">◎ 観測と出典</button><button id="language-toggle" type="button" aria-label="Switch language">JP / EN</button></div></nav>
+    <div id="toast" class="toast hidden" role="status"></div>
+    <dialog id="detail-dialog"><button id="close-dialog" class="close">×</button><div id="dialog-content"></div></dialog>
+    <dialog id="turn-dialog" class="turn-dialog"><div id="turn-content"></div><button id="turn-continue" type="button">続ける</button></dialog>
+    <dialog id="result-dialog" class="result-dialog"><div id="result-content"></div><div class="result-actions"><button id="result-review" type="button">盤面を見る</button><button id="result-again" type="button">もう一度</button></div></dialog>
+  </div>
+</body>
+</html>
+
+

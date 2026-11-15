@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1080" viewBox="0 0 1800 1080" role="img" aria-label="Dr. Hematiteのゲーム画面イメージ。左に火星の基地と探査地図、右に少しずつ広がる研究ロードマップ。砂嵐への備えを考えながら、水から酸素と水素を得て、将来は鉄づくりなどへつなぐ。">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#081923"/><stop offset="1" stop-color="#142b35"/></linearGradient>
+    <linearGradient id="mars" x1="0" x2="0.3" y1="0" y2="1"><stop stop-color="#e8a46c"/><stop offset=".48" stop-color="#af604b"/><stop offset="1" stop-color="#5e3740"/></linearGradient>
+    <linearGradient id="active" x1="0" x2="1"><stop stop-color="#4ecdb6"/><stop offset="1" stop-color="#b2e5ca"/></linearGradient>
+    <linearGradient id="storm" x1="0" x2="1"><stop stop-color="#753d36"/><stop offset="1" stop-color="#b86847"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000" flood-opacity=".24"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+    <clipPath id="mapclip"><rect x="56" y="216" width="472" height="484" rx="22"/></clipPath>
+    <style>
+      text{font-family:'BIZ UDPGothic','Yu Gothic','Meiryo',sans-serif;fill:#ecf6f2}
+      .small{font-size:19px}.tiny{font-size:16px}.body{font-size:22px}.label{font-size:24px;font-weight:700}.title{font-size:35px;font-weight:700}.muted{fill:#a3b9bc}.faint{fill:#80989e}.dark{fill:#10242d}.amber{fill:#ffd29b}.teal{fill:#97e6d3}
+      .panel{fill:#102831;stroke:#36545a;stroke-width:2}.soft{fill:#17343c;stroke:#37575c;stroke-width:2}
+      .node{fill:#1b3940;stroke:#77c7b3;stroke-width:2.5}.future{fill:#1b333b;stroke:#64818a;stroke-width:2;stroke-dasharray:7 7}
+      .edge{fill:none;stroke:#62d2b7;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.edgefuture{fill:none;stroke:#66858c;stroke-width:3;stroke-dasharray:8 9;stroke-linecap:round}
+    </style>
+  </defs>
+
+  <rect width="1800" height="1080" fill="url(#bg)"/>
+  <circle cx="1650" cy="102" r="240" fill="#327a76" opacity=".055"/><circle cx="116" cy="960" r="300" fill="#d48459" opacity=".05"/>
+
+  <!-- Top: brand, current event, vital status. -->
+  <rect x="34" y="30" width="1732" height="126" rx="25" class="panel" filter="url(#shadow)"/>
+  <circle cx="84" cy="91" r="32" fill="#bd704f"/><circle cx="84" cy="91" r="19" fill="#f1b17b"/><circle cx="76" cy="83" r="5" fill="#a15344"/>
+  <text x="137" y="80" class="title">Dr. Hematite</text>
+  <text x="138" y="119" class="small muted">火星を調べ、科学をつなぎ、暮らしを発明する</text>
+  <rect x="642" y="54" width="464" height="78" rx="18" fill="url(#storm)" stroke="#e7a978" stroke-width="2"/>
+  <circle cx="682" cy="92" r="19" fill="#ffc28a" opacity=".24"/><path d="M669 95q11-23 25 0m-25 8q13-13 27 0" fill="none" stroke="#ffe0ba" stroke-width="4" stroke-linecap="round"/>
+  <text x="718" y="86" class="label">最初の出来事：砂嵐が接近</text>
+  <text x="719" y="115" class="small">発電が減る前に、基地の備えを考えよう</text>
+  <rect x="1134" y="54" width="602" height="78" rx="18" fill="#18323a" stroke="#385760" stroke-width="2"/>
+  <circle cx="1172" cy="92" r="15" fill="#79c9d0"/><text x="1200" y="89" class="small">水</text><rect x="1200" y="99" width="117" height="7" rx="4" fill="#315765"/><rect x="1200" y="99" width="72" height="7" rx="4" fill="#76cdd0"/>
+  <circle cx="1375" cy="92" r="15" fill="#9fe5d1"/><text x="1403" y="89" class="small">酸素</text><rect x="1403" y="99" width="117" height="7" rx="4" fill="#315765"/><rect x="1403" y="99" width="83" height="7" rx="4" fill="#9fe5d1"/>
+  <path d="M1588 75l-12 23h12l-5 14 21-27h-12l7-10z" fill="#ffc782"/><text x="1610" y="89" class="small">電力</text><rect x="1610" y="99" width="108" height="7" rx="4" fill="#315765"/><rect x="1610" y="99" width="60" height="7" rx="4" fill="#ffc782"/>
+
+  <!-- Left: actual Mars place, with observation explicitly shown as candidate. -->
+  <rect x="34" y="174" width="516" height="760" rx="25" class="panel" filter="url(#shadow)"/>
+  <text x="62" y="208" class="label">火星を調べる</text><text x="389" y="207" class="tiny muted">探索・基地</text>
+  <g clip-path="url(#mapclip)">
+    <rect x="56" y="216" width="472" height="484" fill="url(#mars)"/>
+    <circle cx="398" cy="297" r="53" fill="#ffc69a" opacity=".2"/>
+    <path d="M42 438L120 390 177 410 239 355 323 430 417 365 545 421V700H42Z" fill="#b06752" opacity=".8"/>
+    <path d="M42 488L132 450 222 490 296 430 397 482 555 436V700H42Z" fill="#874b45"/>
+    <path d="M42 562Q177 522 242 563T545 536V700H42Z" fill="#6d3c40"/>
+    <path d="M56 652q135-74 254-33t218-17" fill="none" stroke="#d9966e" stroke-width="4" opacity=".5"/>
+    <path d="M172 494q112-98 210-3" fill="none" stroke="#fbe1af" stroke-dasharray="9 11" stroke-width="4" opacity=".7"/>
+    <circle cx="391" cy="492" r="63" fill="#a6e5e3" opacity=".15"/><circle cx="391" cy="492" r="43" fill="#bceae9" opacity=".17"/><circle cx="391" cy="492" r="13" fill="#b5eef0" stroke="#fff" stroke-width="3"/>
+    <path d="M391 478l13-26" stroke="#d9f8ed" stroke-width="4"/><rect x="316" y="362" width="190" height="45" rx="12" fill="#143942" stroke="#8ed4d5" stroke-width="2"/>
+    <text x="329" y="391" class="small">氷がありそうな地域</text>
+    <path d="M144 563q0-47 46-47t47 47v24h-93z" fill="#dce3df" stroke="#29404b" stroke-width="6"/>
+    <path d="M144 563h93" stroke="#759da4" stroke-width="4"/><rect x="131" y="585" width="118" height="33" rx="8" fill="#d3c8ac" stroke="#29404b" stroke-width="5"/>
+    <rect x="182" y="536" width="22" height="24" rx="4" fill="#6fb3c5"/><path d="M120 540l-28 36m28-36l24 15" stroke="#2d4950" stroke-width="7"/><rect x="66" y="570" width="57" height="25" rx="4" fill="#7dbac3" stroke="#29404b" stroke-width="4"/>
+    <rect x="250" y="606" width="63" height="23" rx="7" fill="#d9c7a7" stroke="#203942" stroke-width="4"/><circle cx="263" cy="635" r="10" fill="#1c3037" stroke="#acb4a7" stroke-width="4"/><circle cx="301" cy="635" r="10" fill="#1c3037" stroke="#acb4a7" stroke-width="4"/>
+    <path d="M265 604l19-27 28 11" fill="none" stroke="#d9c7a7" stroke-width="6" stroke-linecap="round"/>
+    <rect x="74" y="636" width="164" height="42" rx="11" fill="#17333a" stroke="#bad8cd" stroke-width="2"/><text x="91" y="663" class="small">現在の基地</text>
+  </g>
+  <rect x="56" y="716" width="472" height="83" rx="17" fill="#17373e" stroke="#538a8b" stroke-width="2"/>
+  <circle cx="86" cy="755" r="18" fill="#6bbcc4"/><circle cx="86" cy="755" r="9" fill="#19343d"/>
+  <text x="119" y="747" class="small teal">NASAの観測データ</text>
+  <text x="119" y="779" class="small">氷の候補を発見。探査して確かめる</text>
+  <rect x="56" y="818" width="472" height="91" rx="17" fill="#213941" stroke="#58777d" stroke-width="2"/>
+  <text x="78" y="850" class="tiny muted">画面から研究へ</text>
+  <text x="78" y="883" class="body">見つけた資源が発明の枝につながる</text>
+
+  <!-- Main panel: roadmap is the primary visual. -->
+  <rect x="570" y="174" width="1196" height="760" rx="25" class="panel" filter="url(#shadow)"/>
+  <text x="606" y="215" class="title">育っていく研究ノート</text>
+  <text x="608" y="247" class="small muted">いま見える道筋から、次の発明へ。新しい発見で枝が増える</text>
+  <rect x="1486" y="190" width="234" height="51" rx="16" fill="#27464b" stroke="#749da2" stroke-width="2"/>
+  <text x="1525" y="222" class="small">先の発明を見る →</text>
+
+  <rect x="601" y="271" width="1134" height="460" rx="22" fill="#112b33" stroke="#2d4c53" stroke-width="2"/>
+  <g opacity=".37"><path d="M633 335h1070M633 445h1070M633 555h1070M633 665h1070" stroke="#7aa2a6" stroke-width="1"/><path d="M746 297v408M971 297v408M1196 297v408M1421 297v408M1646 297v408" stroke="#7aa2a6" stroke-width="1"/></g>
+  <rect x="629" y="289" width="149" height="32" rx="11" fill="#315a55"/><text x="648" y="311" class="tiny teal">いま学ぶ道筋</text>
+  <rect x="1501" y="682" width="195" height="31" rx="10" fill="#2d434a"/><text x="1515" y="703" class="tiny muted">次の発見で広がる</text>
+
+  <!-- Path: exploration -> water -> electrolysis -> oxygen and hydrogen. -->
+  <path d="M824 407H878" class="edge"/><path d="M1054 407H1111" class="edge"/>
+  <path d="M1301 407h36v-59h42" class="edge"/><path d="M1337 407v68h42" class="edge"/>
+  <path d="M976 460v155h72" class="edgefuture"/><path d="M1537 475h31v64h12" class="edgefuture"/>
+
+  <rect x="635" y="355" width="189" height="104" rx="19" class="node"/>
+  <circle cx="680" cy="393" r="22" fill="#315d60"/><path d="M668 396q12-30 24 0a12 12 0 0 1-24 0z" fill="#a2dbe0"/>
+  <text x="711" y="394" class="body">氷を探す</text><text x="657" y="435" class="tiny muted">NASA地図 → 現地調査</text>
+
+  <rect x="878" y="355" width="176" height="104" rx="19" class="node"/>
+  <circle cx="921" cy="393" r="21" fill="#2c6671"/><path d="M921 376q18 25 16 30-6 19-28 4-9-9 12-34z" fill="#a8e2df"/>
+  <text x="954" y="394" class="body">水を得る</text><text x="899" y="435" class="tiny muted">採取・融解・浄化</text>
+
+  <rect x="1111" y="355" width="190" height="104" rx="19" fill="#23524e" stroke="#b2efd1" stroke-width="4"/>
+  <circle cx="1152" cy="393" r="20" fill="#377a6f"/><path d="M1143 393h18m-9-9v18" stroke="#d7f8d6" stroke-width="4"/>
+  <text x="1181" y="394" class="body">電気分解</text><text x="1135" y="435" class="tiny teal">水 ＋ 電力 ＋ 装置</text>
+
+  <rect x="1379" y="305" width="158" height="88" rx="18" class="node"/>
+  <circle cx="1416" cy="346" r="18" fill="#438779"/><text x="1406" y="354" class="tiny">O₂</text>
+  <text x="1444" y="343" class="body">酸素</text><text x="1404" y="376" class="tiny muted">呼吸・備蓄</text>
+
+  <rect x="1379" y="431" width="158" height="88" rx="18" class="node"/>
+  <circle cx="1416" cy="471" r="18" fill="#4d7993"/><text x="1406" y="479" class="tiny">H₂</text>
+  <text x="1444" y="468" class="body">水素</text><text x="1404" y="502" class="tiny muted">別の発明へ</text>
+
+  <!-- Preview branches: visible invitation, not fully disclosed curriculum. -->
+  <rect x="1580" y="497" width="126" height="101" rx="17" class="future"/><text x="1605" y="538" class="small muted">鉄と工具</text><text x="1591" y="567" class="tiny faint">鉱物・熱・装置</text>
+  <rect x="1048" y="594" width="153" height="92" rx="17" class="future"/><text x="1072" y="631" class="small muted">温室と</text><text x="1075" y="660" class="small muted">食料</text>
+  <rect x="623" y="593" width="162" height="93" rx="17" class="future"/><text x="645" y="630" class="small muted">レゴリスと</text><text x="664" y="659" class="small muted">建材</text>
+  <rect x="1313" y="594" width="182" height="92" rx="17" class="future"/><text x="1343" y="630" class="small muted">樹脂と</text><text x="1333" y="659" class="small muted">3Dプリント</text>
+  <text x="617" y="760" class="small muted">新しい枝は、見つけた素材や選んだ目標に応じて少しずつ開く。</text>
+
+  <!-- Selected operation and alternative ways to prepare for storm. -->
+  <rect x="601" y="785" width="697" height="121" rx="20" fill="#1c433f" stroke="#72cbb2" stroke-width="2"/>
+  <rect x="620" y="807" width="122" height="28" rx="9" fill="#45896d"/><text x="636" y="828" class="tiny">いま選択中</text>
+  <text x="757" y="832" class="label">水の電気分解を調べる</text>
+  <text x="627" y="870" class="small">水と電力があれば、酸素と水素を生み出せる。</text>
+  <text x="627" y="896" class="tiny muted">装置と電力の条件を確認して、基地で動かそう。</text>
+  <rect x="1316" y="785" width="419" height="121" rx="20" fill="#243b42" stroke="#5b7c80" stroke-width="2"/>
+  <text x="1340" y="819" class="small amber">砂嵐への備え方は一つではない</text>
+  <text x="1341" y="855" class="small">蓄電を増やす　・　酸素を備える</text>
+  <text x="1341" y="886" class="small">探査を進める　・　消費を見直す</text>
+
+  <!-- Bottom legend clearly marks the diagram as a proposal, not a literal implemented game. -->
+  <rect x="34" y="952" width="1732" height="96" rx="24" fill="#19323a" stroke="#3e5d62" stroke-width="2"/>
+  <circle cx="81" cy="1000" r="14" fill="#7bd7bb"/><text x="109" y="1007" class="small">今たどれる道</text>
+  <rect x="361" y="986" width="31" height="28" rx="7" fill="#1b333b" stroke="#78949a" stroke-width="2" stroke-dasharray="5 5"/><text x="408" y="1007" class="small">次に広がる研究</text>
+  <path d="M692 999h61" class="edgefuture"/><text x="769" y="1007" class="small">系統どうしのつながり</text>
+  <text x="1278" y="1007" class="small muted">ゲーム画面のイメージ図 ／ 数値と配置は未確定</text>
+</svg>

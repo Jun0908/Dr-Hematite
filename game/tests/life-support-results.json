@@ -1,0 +1,343 @@
+{
+  "ja": {
+    "passed": 41,
+    "total": 41,
+    "results": [
+      {
+        "name": "v5 starts with two teams, real terrain, and a separate headquarters",
+        "ok": true
+      },
+      {
+        "name": "old v2 save is preserved under its own key",
+        "ok": true
+      },
+      {
+        "name": "map construction accepts extractors but not processing plants",
+        "ok": true
+      },
+      {
+        "name": "surveyed ice enters the headquarters and becomes water",
+        "ok": true
+      },
+      {
+        "name": "life-support plant takes water and produces two gases",
+        "ok": true
+      },
+      {
+        "name": "storm reduces solar generation and batteries remain separate",
+        "ok": true
+      },
+      {
+        "name": "Pod capture grants assigned area without instant finished goods",
+        "ok": true
+      },
+      {
+        "name": "disconnected Pod pauses extraction but retains stock",
+        "ok": true
+      },
+      {
+        "name": "base page builds a visible device and offers the science path",
+        "ok": true
+      },
+      {
+        "name": "device selection previews the next turn without spending stock",
+        "ok": true
+      },
+      {
+        "name": "unresearched headquarters device links to its branch",
+        "ok": true
+      },
+      {
+        "name": "a hostile Pod must be damaged before capture",
+        "ok": true
+      },
+      {
+        "name": "a second Pod can reconnect an isolated resource area",
+        "ok": true
+      },
+      {
+        "name": "selecting a Pod previews the known resource supply at risk",
+        "ok": true
+      },
+      {
+        "name": "capturing a Pod removes the old extractor without double income",
+        "ok": true
+      },
+      {
+        "name": "ceramic material can reinforce the core once",
+        "ok": true
+      },
+      {
+        "name": "Finish advances successive rounds and preserves progress",
+        "ok": true
+      },
+      {
+        "name": "research routes processing into headquarters",
+        "ok": true
+      },
+      {
+        "name": "research links only completed science lessons",
+        "ok": true
+      },
+      {
+        "name": "three missing life-support resources cause defeat after grace turns",
+        "ok": true
+      },
+      {
+        "name": "simultaneous sustained shortages end in a draw",
+        "ok": true
+      },
+      {
+        "name": "holding a disabled rival core wins after its response turn",
+        "ok": true
+      },
+      {
+        "name": "later events exclude radiation",
+        "ok": true
+      },
+      {
+        "name": "both teams start with powered water oxygen food and ice extraction",
+        "ok": true
+      },
+      {
+        "name": "initial equipment survives the first dust storm without construction",
+        "ok": true
+      },
+      {
+        "name": "exactly meeting life needs is not a shortage",
+        "ok": true
+      },
+      {
+        "name": "cutting off ice stops water production once reserves are exhausted",
+        "ok": true
+      },
+      {
+        "name": "resource guide shows ownership steps and the production route",
+        "ok": true
+      },
+      {
+        "name": "resource finder navigates to Pod and selects a crawler",
+        "ok": true
+      },
+      {
+        "name": "unclaimed mineral guides toward the Pod before extraction",
+        "ok": true
+      },
+      {
+        "name": "capturing a resource Pod stops enemy income until new equipment is installed",
+        "ok": true
+      },
+      {
+        "name": "solar alone increases power, not material output",
+        "ok": true
+      },
+      {
+        "name": "one extra water processor produces a real surplus at normal cost",
+        "ok": true
+      },
+      {
+        "name": "extra food uses the shared water reserve",
+        "ok": true
+      },
+      {
+        "name": "ice and solar without a processor cannot create water",
+        "ok": true
+      },
+      {
+        "name": "unmanned Pods consume power rather than extra living supplies",
+        "ok": true
+      },
+      {
+        "name": "industrial extraction waits while life support takes available power",
+        "ok": true
+      },
+      {
+        "name": "all stock ledgers reconcile production processing living and repairs",
+        "ok": true
+      },
+      {
+        "name": "inventory explains gross production and opens the matching device",
+        "ok": true
+      },
+      {
+        "name": "printing makes parts from finite carried resin at normal cost",
+        "ok": true
+      },
+      {
+        "name": "solar preview includes raw material production and excludes construction cost",
+        "ok": true
+      }
+    ]
+  },
+  "en": {
+    "passed": 41,
+    "total": 41,
+    "results": [
+      {
+        "name": "v5 starts with two teams, real terrain, and a separate headquarters",
+        "ok": true
+      },
+      {
+        "name": "old v2 save is preserved under its own key",
+        "ok": true
+      },
+      {
+        "name": "map construction accepts extractors but not processing plants",
+        "ok": true
+      },
+      {
+        "name": "surveyed ice enters the headquarters and becomes water",
+        "ok": true
+      },
+      {
+        "name": "life-support plant takes water and produces two gases",
+        "ok": true
+      },
+      {
+        "name": "storm reduces solar generation and batteries remain separate",
+        "ok": true
+      },
+      {
+        "name": "Pod capture grants assigned area without instant finished goods",
+        "ok": true
+      },
+      {
+        "name": "disconnected Pod pauses extraction but retains stock",
+        "ok": true
+      },
+      {
+        "name": "base page builds a visible device and offers the science path",
+        "ok": true
+      },
+      {
+        "name": "device selection previews the next turn without spending stock",
+        "ok": true
+      },
+      {
+        "name": "unresearched headquarters device links to its branch",
+        "ok": true
+      },
+      {
+        "name": "a hostile Pod must be damaged before capture",
+        "ok": true
+      },
+      {
+        "name": "a second Pod can reconnect an isolated resource area",
+        "ok": true
+      },
+      {
+        "name": "selecting a Pod previews the known resource supply at risk",
+        "ok": true
+      },
+      {
+        "name": "capturing a Pod removes the old extractor without double income",
+        "ok": true
+      },
+      {
+        "name": "ceramic material can reinforce the core once",
+        "ok": true
+      },
+      {
+        "name": "Finish advances successive rounds and preserves progress",
+        "ok": true
+      },
+      {
+        "name": "research routes processing into headquarters",
+        "ok": true
+      },
+      {
+        "name": "research links only completed science lessons",
+        "ok": true
+      },
+      {
+        "name": "three missing life-support resources cause defeat after grace turns",
+        "ok": true
+      },
+      {
+        "name": "simultaneous sustained shortages end in a draw",
+        "ok": true
+      },
+      {
+        "name": "holding a disabled rival core wins after its response turn",
+        "ok": true
+      },
+      {
+        "name": "later events exclude radiation",
+        "ok": true
+      },
+      {
+        "name": "both teams start with powered water oxygen food and ice extraction",
+        "ok": true
+      },
+      {
+        "name": "initial equipment survives the first dust storm without construction",
+        "ok": true
+      },
+      {
+        "name": "exactly meeting life needs is not a shortage",
+        "ok": true
+      },
+      {
+        "name": "cutting off ice stops water production once reserves are exhausted",
+        "ok": true
+      },
+      {
+        "name": "resource guide shows ownership steps and the production route",
+        "ok": true
+      },
+      {
+        "name": "resource finder navigates to Pod and selects a crawler",
+        "ok": true
+      },
+      {
+        "name": "unclaimed mineral guides toward the Pod before extraction",
+        "ok": true
+      },
+      {
+        "name": "capturing a resource Pod stops enemy income until new equipment is installed",
+        "ok": true
+      },
+      {
+        "name": "solar alone increases power, not material output",
+        "ok": true
+      },
+      {
+        "name": "one extra water processor produces a real surplus at normal cost",
+        "ok": true
+      },
+      {
+        "name": "extra food uses the shared water reserve",
+        "ok": true
+      },
+      {
+        "name": "ice and solar without a processor cannot create water",
+        "ok": true
+      },
+      {
+        "name": "unmanned Pods consume power rather than extra living supplies",
+        "ok": true
+      },
+      {
+        "name": "industrial extraction waits while life support takes available power",
+        "ok": true
+      },
+      {
+        "name": "all stock ledgers reconcile production processing living and repairs",
+        "ok": true
+      },
+      {
+        "name": "inventory explains gross production and opens the matching device",
+        "ok": true
+      },
+      {
+        "name": "printing makes parts from finite carried resin at normal cost",
+        "ok": true
+      },
+      {
+        "name": "solar preview includes raw material production and excludes construction cost",
+        "ok": true
+      }
+    ]
+  },
+  "errors": []
+}

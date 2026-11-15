@@ -1,0 +1,247 @@
+{
+  "passed": 34,
+  "total": 34,
+  "results": [
+    {
+      "name": "Real map assets and two teams load",
+      "ok": true
+    },
+    {
+      "name": "Survey and science create a working ice source",
+      "ok": true
+    },
+    {
+      "name": "Research gates keep material spending honest",
+      "ok": true
+    },
+    {
+      "name": "AI uses research, survey, parts and points",
+      "ok": true
+    },
+    {
+      "name": "Storm warning and effect follow round boundaries",
+      "ok": true
+    },
+    {
+      "name": "Units are limited to a move and an action",
+      "ok": true
+    },
+    {
+      "name": "Supply loss weakens isolated machines and save contains state",
+      "ok": true
+    },
+    {
+      "name": "Only two mountain tiles interrupt travel, supply and radio",
+      "ok": true
+    },
+    {
+      "name": "Climbing research opens one-tile mountains without blocking starter ice",
+      "ok": true
+    },
+    {
+      "name": "Base siege needs holding time and can be repaired",
+      "ok": true
+    },
+    {
+      "name": "Siege victory waits for the rival reply",
+      "ok": true
+    },
+    {
+      "name": "Extra hits cannot restart the siege timer",
+      "ok": true
+    },
+    {
+      "name": "Sentry must deploy, draw battery and cool after firing",
+      "ok": true
+    },
+    {
+      "name": "Disconnected rover stores observations until reconnection",
+      "ok": true
+    },
+    {
+      "name": "Radiation limits outdoor work and shelter restores it",
+      "ok": true
+    },
+    {
+      "name": "Research graph connects inventions to study pages",
+      "ok": true
+    },
+    {
+      "name": "The first ice tap offers Survey before movement or construction",
+      "ok": true
+    },
+    {
+      "name": "The first ice source is surveyed, researched and built through the UI",
+      "ok": true
+    },
+    {
+      "name": "Map move targets are legal and move in two taps",
+      "ok": true
+    },
+    {
+      "name": "Attack preview waits for confirmation",
+      "ok": true
+    },
+    {
+      "name": "Food and oxygen priority changes the shared production forecast",
+      "ok": true
+    },
+    {
+      "name": "Mars metal can strengthen production or be saved for a sentry",
+      "ok": true
+    },
+    {
+      "name": "Metal armor upgrade appears on the worker and raises repair limit",
+      "ok": true
+    },
+    {
+      "name": "Forecast uses production without changing current state",
+      "ok": true
+    },
+    {
+      "name": "Build preview uses the same next-turn generation without spending",
+      "ok": true
+    },
+    {
+      "name": "Different oxygen research routes are available",
+      "ok": true
+    },
+    {
+      "name": "A crater detour reaches iron ore, but neglecting food has a cost",
+      "ok": true
+    },
+    {
+      "name": "A complete match can be won using actual terrain routes and action costs",
+      "ok": true
+    },
+    {
+      "name": "End Turn advances once, shows a result, and Play Again resets",
+      "ok": true
+    },
+    {
+      "name": "Rival turn summary respects visibility and reports attacks",
+      "ok": true
+    },
+    {
+      "name": "A round commits to storage once after the rival and production",
+      "ok": true
+    },
+    {
+      "name": "Turn report explains reserves, production, processing and life support in the chosen language",
+      "ok": true
+    },
+    {
+      "name": "Language switch preserves the active match and selection",
+      "ok": true
+    },
+    {
+      "name": "A match reaches an outcome without intervention",
+      "ok": true
+    }
+  ],
+  "simulation": {
+    "round": 15,
+    "outcome": "defeat",
+    "teams": [
+      {
+        "dp": 60,
+        "stock": {
+          "ice": 0,
+          "water": 0,
+          "oxygen": 0,
+          "food": 0,
+          "hydrogen": 0,
+          "ore": 0,
+          "metal": 0,
+          "regolith": 0,
+          "ceramic": 0,
+          "scrap": 3,
+          "resin": 2,
+          "parts": 3
+        },
+        "tech": [
+          "survey",
+          "power"
+        ],
+        "units": 2,
+        "shortage": 3
+      },
+      {
+        "dp": 5,
+        "stock": {
+          "ice": 11,
+          "water": 20.8,
+          "oxygen": 11.8,
+          "food": 7.8,
+          "hydrogen": 8,
+          "ore": 0,
+          "metal": 0,
+          "regolith": 0,
+          "ceramic": 0,
+          "scrap": 3,
+          "resin": 2,
+          "parts": 0
+        },
+        "tech": [
+          "survey",
+          "power",
+          "ice",
+          "water",
+          "electrolysis",
+          "farming",
+          "storage",
+          "climbing",
+          "mineral",
+          "moxie",
+          "recycling",
+          "printing"
+        ],
+        "units": 2,
+        "shortage": 0
+      }
+    ],
+    "aiFacilities": [
+      {
+        "type": "waterPlant",
+        "blocked": ""
+      },
+      {
+        "type": "solar",
+        "blocked": ""
+      },
+      {
+        "type": "oxygenPlant",
+        "blocked": ""
+      },
+      {
+        "type": "greenhouse",
+        "blocked": ""
+      },
+      {
+        "type": "battery",
+        "blocked": ""
+      },
+      {
+        "type": "iceMine",
+        "blocked": ""
+      }
+    ],
+    "aiLog": [
+      "機体が交戦",
+      "機体が交戦",
+      "現地調査",
+      "発明：3Dプリント部品",
+      "機体が交戦",
+      "発明：樹脂の再利用",
+      "機体が交戦",
+      "現地調査",
+      "発明：大気から酸素",
+      "機体が交戦",
+      "発明：鉱物分析",
+      "建設：蓄電設備",
+      "発明：登坂技術",
+      "発明：蓄電と配分",
+      "初生産：温室"
+    ]
+  }
+}

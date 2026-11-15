@@ -1,0 +1,60 @@
+{
+  "purpose": "source metadata, not extracted spatial data",
+  "maps": {
+    "H1": {
+      "id": "PSP_004097_2185",
+      "kind": "hirise_map_projected_surface_image",
+      "official": "https://hirise.lpl.arizona.edu/PSP_004097_2185",
+      "local": "arcadia_hirise.jpg",
+      "center": "38.129 N, 190.206 E",
+      "game_crop_pixels": [400, 2300, 1648, 3548]
+    },
+    "M1": {
+      "id": "PIA26045",
+      "kind": "water_ice_probability_detection",
+      "official": "https://www.jpl.nasa.gov/images/pia26045-swim-map-shows-subsurface-water-ice-on-mars/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA26045.jpg",
+      "local": "swim_ice.jpg"
+    },
+    "M2": {
+      "id": "PIA26046",
+      "kind": "buried_ice",
+      "official": "https://www.jpl.nasa.gov/images/pia26046-distribution-of-buried-ice-on-mars/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA26046.jpg"
+    },
+    "M3": {
+      "id": "PIA04253",
+      "kind": "iron_element",
+      "official": "https://science.nasa.gov/photojournal/map-of-martian-iron-at-mid-latitudes/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA04253.jpg"
+    },
+    "M4": {
+      "id": "PIA04256",
+      "kind": "silicon_element",
+      "official": "https://science.nasa.gov/photojournal/map-of-martian-silicon-at-mid-latitudes/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA04256.jpg"
+    },
+    "M5": {
+      "id": "PIA05154",
+      "kind": "hematite_mineral",
+      "official": "https://science.nasa.gov/photojournal/targeting-a-hematite-rich-terrain/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA05154.jpg"
+    },
+    "M6": {
+      "id": "PIA02056",
+      "kind": "hematite_mineral",
+      "official": "https://science.nasa.gov/photojournal/hematite-map-tes/",
+      "image": "https://photojournal.jpl.nasa.gov/jpeg/PIA02056.jpg"
+    },
+    "M7": {
+      "id": "ESA_OMEGA_CRISM_2022",
+      "kind": "hydrated_minerals",
+      "official": "https://www.esa.int/ESA_Multimedia/Images/2022/08/Global_map_of_hydrated_minerals_on_Mars"
+    },
+    "M8": {
+      "id": "USGS_SIM3292",
+      "kind": "geologic_units",
+      "official": "https://pubs.usgs.gov/sim/3292/"
+    }
+  }
+}

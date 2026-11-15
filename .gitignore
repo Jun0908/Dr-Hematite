@@ -1,0 +1,11 @@
+# Local test and editor artifacts
+.playwright-mcp/
+.video-tools/
+**/__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+.env
+.env.*
+*.log
+assets/video/raw/

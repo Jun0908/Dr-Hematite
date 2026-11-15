@@ -1,0 +1,58 @@
+{
+  "passed": 13,
+  "total": 13,
+  "results": [
+    {
+      "name": "Initial map, separate research page, complete tree",
+      "ok": true
+    },
+    {
+      "name": "Locked research cannot spend points",
+      "ok": true
+    },
+    {
+      "name": "Survey consumes one point only once",
+      "ok": true
+    },
+    {
+      "name": "Research unlocks a usable map action",
+      "ok": true
+    },
+    {
+      "name": "Build, output, upgrade and city growth",
+      "ok": true
+    },
+    {
+      "name": "Movement only once per turn; reset restores state",
+      "ok": true
+    },
+    {
+      "name": "Manufacturing requires inputs and power",
+      "ok": true
+    },
+    {
+      "name": "Storm is an event and recoverable, not the game objective",
+      "ok": true
+    },
+    {
+      "name": "Lesson controls update selected science explanation",
+      "ok": true
+    },
+    {
+      "name": "Patrol construction spends points and material, then must wait",
+      "ok": true
+    },
+    {
+      "name": "Patrol combat takes turns and can stop a rival unit",
+      "ok": true
+    },
+    {
+      "name": "Rivals wait for the first storm, then advance",
+      "ok": true
+    },
+    {
+      "name": "Base capture declares victory, base loss declares defeat",
+      "ok": true
+    }
+  ]
+}
